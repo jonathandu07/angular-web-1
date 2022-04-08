@@ -2,15 +2,17 @@
     <div class="row">
         <div class="col">
             <h2>
-                home
+                {{title}}
             </h2>
         </div>
 
     </div>
 
     <div class="row">
-        <div class="col">
-            <img src="assets\JV-SVG-PL-YHWH.svg" alt="logo" class="img-fluid p-12 ">
+        <div class="col-md-6">
+            <img src="assets\JV-SVG-PL-YHWH.svg" alt="logo" class="img-fluid p-2 ">
+
+            <img [src]=" 'assets/images/'+sourceImg" alt="logo" class="img-fluid image" (click)="changeImage()">
 
         </div>
 
