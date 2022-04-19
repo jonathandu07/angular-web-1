@@ -1,7 +1,7 @@
 <section class="container-fluid">
     <div class="row">
         <div class="col">
-            <h2>
+            <h2 id="top">
                 Portfolio
             </h2>
             <p *ngIf="JokeNoFound, else JokeFound ">No bromas encontradas</p>
@@ -19,18 +19,21 @@
                 <div class="card-body">
                   <h5 class="card-title">Card title</h5>
                   <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                  <a href="assets\Pegasus-R9.JPG" class="btn btn-primary">Go somewhere</a>
                 </div>
               </div>
         </div>
 
         <div class="col-12 col-md-4">
             <div class="card mb-2">
-                <img src="assets\Bayractar-TB-2-R1.png" class="card-img-top" alt="Bayractar-TB-2-R1">
+                <a>
+                  <img src="assets\Bayractar-TB-2-R1.png" class="card-img-top" [alt]="'Bayractar-TB-2-R1'">
+                </a>
+
                 <div class="card-body">
                   <h5 class="card-title">Card title</h5>
                   <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                  <a href="assets\Bayractar-TB-2-R1.png" class="btn btn-primary">Go somewhere</a>
                 </div>
               </div>
         </div>
@@ -41,7 +44,7 @@
                 <div class="card-body">
                   <h5 class="card-title">Card title</h5>
                   <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                  <a href="assets\DR-1.JPG" class="btn btn-primary">Go somewhere</a>
                 </div>
               </div>
         </div>
@@ -54,18 +57,24 @@
 
         <nav aria-label="Page navigation example" class="col-12">
           <ul class="pagination">
-            <li class="page-item active" (click)="backPage()"><a class="page-link" role="button">précédent</a></li>
-            <li class="page-item" (click)="gotoPage(page)"><a class="page-link" role="button">{{page}} </a></li>
-            <li class="page-item" (click)="gotoPage(page+1)"><a class="page-link" role="button">{{page+1}} </a></li>
-            <li class="page-item" (click)="gotoPage(page+2)"><a class="page-link" role="button">{{page+2}} </a></li>
-            <li class="page-item active" (click)="nextPage()"><a class="page-link" role="button">suivant</a></li>
+            <li *ngIf="page>2" class="page-item"><a class="page-link" role="button" (click)="loadPics('',page-2)">{{page-2}}</a></li>
+            <li *ngIf="page>1" class="page-item"><a class="page-link" role="button" (click)="loadPics('',page-1)">{{page-1}}</a></li>
+    
+            <li class="page-item active" (click)="loadPics('back')"><a class="page-link" role="button">précédent</a></li>
+            <li class="page-item" (click)="loadPics('',page)"><a class="page-link" role="button">{{page}} </a></li>
+            <li class="page-item" (click)="loadPics('',page+1)"><a class="page-link" role="button">{{page+1}} </a></li>
+            <li class="page-item" (click)="loadPics('',page+2)"><a class="page-link" role="button">{{page+2}} </a></li>
+            <li class="page-item active" (click)="loadPics('next')"><a class="page-link" role="button">suivant</a></li>
           </ul>
         </nav>
       
         <div class="row">
           <div *ngFor="let pic of gallery" class="col-12 col-md-4 mb-2">
               <div class="card">
+                <a [routerLink]="'/portfolio/'+pic.id">
                   <img [src]=" 'https://picsum.photos/id/'+pic.id+'/640/480' " class="card-img-top" [alt]="'Picture from '+pic.author">
+                </a>
+
                   <div class="card-body">
                     <h5 class="card-title">Picture from {{pic.author}}</h5>
                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -77,11 +86,18 @@
     </div>
     <nav aria-label="Page navigation example" class="col-12">
       <ul class="pagination">
-        <li class="page-item active" (click)="backPage()"><a class="page-link" role="button">précédent</a></li>
-        <li class="page-item" (click)="gotoPage(page)"><a class="page-link" role="button">{{page}} </a></li>
-        <li class="page-item" (click)="gotoPage(page+1)"><a class="page-link" role="button">{{page+1}} </a></li>
-        <li class="page-item" (click)="gotoPage(page+2)"><a class="page-link" role="button">{{page+2}} </a></li>
-        <li class="page-item active" (click)="nextPage()"><a class="page-link" role="button">suivant</a></li>
+        <li *ngIf="page>2" class="page-item"><a class="page-link" role="button" (click)="loadPics('',page-2)">{{page-2}}</a></li>
+        <li *ngIf="page>1" class="page-item"><a class="page-link" role="button" (click)="loadPics('',page-1)">{{page-1}}</a></li>
+
+        <li class="page-item active" (click)="loadPics('back')"><a class="page-link" role="button">précédent</a></li>
+        <li class="page-item" (click)="loadPics('',page)"><a class="page-link" role="button">{{page}} </a></li>
+        <li class="page-item" (click)="loadPics('',page+1)"><a class="page-link" role="button">{{page+1}} </a></li>
+        <li class="page-item" (click)="loadPics('',page+2)"><a class="page-link" role="button">{{page+2}} </a></li>
+        <li class="page-item active" (click)="loadPics('next')"><a class="page-link" role="button">suivant</a></li>
       </ul>
     </nav>
+
+    <div>
+      <button (click)="goTop()">top</button>
+    </div>
 </section>
