@@ -51,7 +51,7 @@
                 3 Mais vous, ne vous faites pas de mal ni à vos bêtes, ni à la terre desséchée, ni aux arbres dont vous pouvez user pour votre nourriture, ni à vos bêtes sauvages. </p>
 
         </div>
-        
+
         <nav aria-label="Page navigation example" class="col-12">
           <ul class="pagination">
             <li class="page-item" (click)="backPage()"><a class="page-link" role="button">Précédent</a></li>
@@ -78,9 +78,9 @@
     <nav aria-label="Page navigation example" class="col-12">
       <ul class="pagination">
         <li class="page-item" (click)="backPage()"><a class="page-link" role="button">Précédent</a></li>
-        <li class="page-item"><a class="page-link"(click)="Page1()">1</a></li>
-        <li class="page-item"><a class="page-link"(click)="Page2()">2</a></li>
-        <li class="page-item"><a class="page-link"(click)="Page3()">3</a></li>
+        <li class="page-item active"><a class="page-link"(click)="Page1()">{{page+1}}</a></li>
+        <li class="page-item"><a class="page-link"(click)="Page2()">{{page+2}}</a></li>
+        <li class="page-item"><a class="page-link"(click)="Page3()">{{page+3}}</a></li>
         <li class="page-item" (click)="nextPage()"><a class="page-link" role="button">suivant</a></li>
       </ul>
     </nav>
