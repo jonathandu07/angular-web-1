@@ -54,11 +54,11 @@
 
         <nav aria-label="Page navigation example" class="col-12">
           <ul class="pagination">
-            <li class="page-item" (click)="backPage()"><a class="page-link" role="button">Précédent</a></li>
-            <li class="page-item"><a class="page-link"(click)="Page1()">1</a></li>
-            <li class="page-item"><a class="page-link"(click)="Page2()">2</a></li>
-            <li class="page-item"><a class="page-link"(click)="Page3()">3</a></li>
-            <li class="page-item" (click)="nextPage()"><a class="page-link" role="button">suivant</a></li>
+            <li class="page-item active" (click)="backPage()"><a class="page-link" role="button">précédent</a></li>
+            <li class="page-item" (click)="gotoPage(page)"><a class="page-link" role="button">{{page}} </a></li>
+            <li class="page-item" (click)="gotoPage(page+1)"><a class="page-link" role="button">{{page+1}} </a></li>
+            <li class="page-item" (click)="gotoPage(page+2)"><a class="page-link" role="button">{{page+2}} </a></li>
+            <li class="page-item active" (click)="nextPage()"><a class="page-link" role="button">suivant</a></li>
           </ul>
         </nav>
       
@@ -77,11 +77,11 @@
     </div>
     <nav aria-label="Page navigation example" class="col-12">
       <ul class="pagination">
-        <li class="page-item" (click)="backPage()"><a class="page-link" role="button">Précédent</a></li>
-        <li class="page-item active"><a class="page-link"(click)="Page1()">{{page+1}}</a></li>
-        <li class="page-item"><a class="page-link"(click)="Page2()">{{page+2}}</a></li>
-        <li class="page-item"><a class="page-link"(click)="Page3()">{{page+3}}</a></li>
-        <li class="page-item" (click)="nextPage()"><a class="page-link" role="button">suivant</a></li>
+        <li class="page-item active" (click)="backPage()"><a class="page-link" role="button">précédent</a></li>
+        <li class="page-item" (click)="gotoPage(page)"><a class="page-link" role="button">{{page}} </a></li>
+        <li class="page-item" (click)="gotoPage(page+1)"><a class="page-link" role="button">{{page+1}} </a></li>
+        <li class="page-item" (click)="gotoPage(page+2)"><a class="page-link" role="button">{{page+2}} </a></li>
+        <li class="page-item active" (click)="nextPage()"><a class="page-link" role="button">suivant</a></li>
       </ul>
     </nav>
 </section>

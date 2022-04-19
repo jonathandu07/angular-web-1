@@ -33,8 +33,15 @@ export class PortfolioComponent implements OnInit {
     console.log(this.urlPicsum);
   }
 
+  gotoPage(nb:number){
+    this.page = nb;
+    this.urlPicsum ='https://picsum.photos/v2/list?page='+this.page+'&limit=6';
+    this.loadPics();
+
+  }
+
   Page1(){
-    this.page = this.page =+1;
+    this.page = this.page;
     this.urlPicsum='https://picsum.photos/v2/list?page='+this.page+'&limit=6'
     this.loadPics();
     console.log(this.page);
@@ -42,7 +49,7 @@ export class PortfolioComponent implements OnInit {
   }
 
   Page2(){
-    this.page = this.page =+2;
+    this.page = this.page =+1;
     this.urlPicsum='https://picsum.photos/v2/list?page='+this.page+'&limit=6'
     this.loadPics();
     console.log(this.page);
@@ -50,7 +57,7 @@ export class PortfolioComponent implements OnInit {
   }
 
   Page3(){
-    this.page = this.page =+3;
+    this.page = this.page =+2;
     this.urlPicsum='https://picsum.photos/v2/list?page='+this.page+'&limit=6'
     this.loadPics();
     console.log(this.page);
