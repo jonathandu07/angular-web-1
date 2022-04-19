@@ -4,6 +4,10 @@
             <h2>
                 Portfolio
             </h2>
+            <p *ngIf="JokeNoFound, else JokeFound ">No bromas encontradas</p>
+            <ng-template #JokeFound>
+              <p>{{joke?.value}}</p>
+            </ng-template>
         </div>
 
     </div>
@@ -33,7 +37,7 @@
 
         <div class="col-12 col-md-4">
             <div class="card mb-2">
-                <img src="assets\drone-5.JPG" class="card-img-top" alt="drone-5">
+                <img src="assets\DR-1.JPG" class="card-img-top" alt="DR-1">
                 <div class="card-body">
                   <h5 class="card-title">Card title</h5>
                   <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -47,6 +51,37 @@
                 3 Mais vous, ne vous faites pas de mal ni à vos bêtes, ni à la terre desséchée, ni aux arbres dont vous pouvez user pour votre nourriture, ni à vos bêtes sauvages. </p>
 
         </div>
+        
+        <nav aria-label="Page navigation example" class="col-12">
+          <ul class="pagination">
+            <li class="page-item" (click)="backPage()"><a class="page-link" role="button">Précédent</a></li>
+            <li class="page-item"><a class="page-link"(click)="Page1()">1</a></li>
+            <li class="page-item"><a class="page-link"(click)="Page2()">2</a></li>
+            <li class="page-item"><a class="page-link"(click)="Page3()">3</a></li>
+            <li class="page-item" (click)="nextPage()"><a class="page-link" role="button">suivant</a></li>
+          </ul>
+        </nav>
+      
+        <div class="row">
+          <div *ngFor="let pic of gallery" class="col-12 col-md-4 mb-2">
+              <div class="card">
+                  <img [src]=" 'https://picsum.photos/id/'+pic.id+'/640/480' " class="card-img-top" [alt]="'Picture from '+pic.author">
+                  <div class="card-body">
+                    <h5 class="card-title">Picture from {{pic.author}}</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a [href]="pic.download_url" class="btn btn-primary">Go somewhere</a>
+                  </div>
+                </div>
+          </div>
+      </div>
     </div>
-
+    <nav aria-label="Page navigation example" class="col-12">
+      <ul class="pagination">
+        <li class="page-item" (click)="backPage()"><a class="page-link" role="button">Précédent</a></li>
+        <li class="page-item"><a class="page-link"(click)="Page1()">1</a></li>
+        <li class="page-item"><a class="page-link"(click)="Page2()">2</a></li>
+        <li class="page-item"><a class="page-link"(click)="Page3()">3</a></li>
+        <li class="page-item" (click)="nextPage()"><a class="page-link" role="button">suivant</a></li>
+      </ul>
+    </nav>
 </section>

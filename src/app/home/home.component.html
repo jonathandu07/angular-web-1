@@ -1,26 +1,56 @@
 <section class="container-fluid">
-    <div class="row">
-        <div class="col">
-            <h2>
-                {{title}}
-            </h2>
-        </div>
+  <div class="row">
+    <div class="col">
+      <h2>
+        {{ title }}
+      </h2>
+    </div>
+  </div>
 
+  <div class="row">
+    <div class="col-md-6">
+      <img src="assets\JV-SVG-PL-YHWH.svg" alt="logo" class="img-fluid p-2" />
+
+      <img
+        [src]="'assets/images/' + sourceImg"
+        alt="logo"
+        class="img-fluid image"
+        (click)="changeImage()"
+      />
     </div>
 
-    <div class="row">
-        <div class="col-md-6">
-            <img src="assets\JV-SVG-PL-YHWH.svg" alt="logo" class="img-fluid p-2 ">
+    <div class="col-12 col-md-6">
+      <p [ngStyle]="{ color: myColor }" (click)="myColor = '#000080'">
+        que le seigneur soit avec vous. 3 Mais vous, ne vous faites pas de mal
+        ni à vos bêtes, ni à la terre desséchée, ni aux arbres dont vous pouvez
+        user pour votre nourriture, ni à vos bêtes sauvages.
+      </p>
 
-            <img [src]=" 'assets/images/'+sourceImg" alt="logo" class="img-fluid image" (click)="changeImage()">
+      <p [ngClass]="{ 'text-primary': true }">
+        Un jour d'octobre loin de chez eux, ils se sont retrouvés à un
+        enterrement. Lorsque la famille revient en Australie pour y chercher la
+        dépouille du défunt, ils découvrent qu'ils sont dans un cercueil. Ils se
+        rendent alors compte que les funérailles ont été piratées et sont en
+        réalité des funérailles virtuelles en ligne. « Nous sommes évidemment
+        très heureux d'avoir un gagnant aussi prestigieux pour cette édition »,
+        a déclaré Chris Dolan, PDG de Virtual Funeral Company, la société qui a
+        créé le concours. « Pour des raisons professionnelles, nous ne pouvons
+        pas vraiment en parler. Mais c'est un grand honneur que notre première
+        compétition Virtual Funeral Company Grand Prix ait été remportée par un
+        producteur de télévision aussi talentueux. »
+      </p>
 
-        </div>
+      <ol>
+          <li *ngFor="let img of arrayImg">
+            <img [src]=" 'assets/images/' +img">
+          </li>
+      </ol>
 
-        <div class="col-12 col-md-6">
-            <p>que le seigneur soit avec vous.
-                3 Mais vous, ne vous faites pas de mal ni à vos bêtes, ni à la terre desséchée, ni aux arbres dont vous pouvez user pour votre nourriture, ni à vos bêtes sauvages. </p>
-
-        </div>
+      <ol>
+        <li *ngFor="let img of JsonImg">
+          <img [src]=" 'assets/images/' +img.url" [alt]="img.alt">
+        </li>
+    </ol>
     </div>
-
+  </div>
 </section>
