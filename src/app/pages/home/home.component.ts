@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from 'src/app/services/api.service';
 
 @Component({
   selector: 'app-home',
@@ -6,9 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
-  constructor() { }
+  constructor(public api:ApiService,) { }
 
   title = 'home';
+
+
+  truc = this.api.propriete;
 
   arrayImg = [
     'auto-2179220.jpg',
@@ -47,5 +51,6 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     console.log(this.sourceImg);
     this.changeImage();
+    console.log(this.truc)
   }
 }

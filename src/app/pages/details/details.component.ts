@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
-import { HttpClient} from '@angular/common/http';
+import { ApiService } from 'src/app/services/api.service';
 
 
 @Component({
@@ -11,8 +11,8 @@ import { HttpClient} from '@angular/common/http';
 export class DetailsComponent implements OnInit {
   
   infoImageId = '';
-  constructor(public http:HttpClient,private route:ActivatedRoute) { }
-  itemId = '';
+  constructor(private route:ActivatedRoute, public api:ApiService ) { }
+  itemId = 0;
   itemInfo:any;
   source='\assets\loading-gif-icon-0.jpg';
   griser = '&grayscale';
@@ -27,7 +27,7 @@ export class DetailsComponent implements OnInit {
     this.source +=this.flou;
   }
   generateSource(){
-    this.source = 'https://picsum.photos/id/'+this.itemId+'/1280/960?';
+    this.source = this.api.bigImgPicsum(this.itemId);
     this.griser? this.source += 'grayscale&' :null;
     this.niveau >0? this.source += 'blur=' + this.niveau : null;
   }
@@ -56,7 +56,7 @@ export class DetailsComponent implements OnInit {
     this.itemId = this.route.snapshot.params['itemId'];
     console.log('itemId',this.itemId);
     // on charge les données correspondantes de l'image
-    this.http.get('https://picsum.photos/id/' +this.itemId+'/info').subscribe(data =>{ this.itemInfo=data;console.log(data);
+    this.api.getUrl(this.api.urlPicsum +this.itemId+'/info').subscribe(data =>{ this.itemInfo=data;console.log(data);
     this.generateSource();
   })
   }

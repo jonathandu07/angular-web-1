@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient} from '@angular/common/http';
+import { ApiService } from 'src/app/services/api.service';
 // import { url } from 'inspector';
 import { ViewportScroller } from '@angular/common';
+
 @Component({
   selector: 'app-portfolio',
   templateUrl: './portfolio.component.html',
@@ -9,7 +10,9 @@ import { ViewportScroller } from '@angular/common';
 })
 export class PortfolioComponent implements OnInit {
 
-  constructor(public http:HttpClient, public scroll: ViewportScroller) { }
+  constructor(
+     public scroll: ViewportScroller,
+      public api:ApiService) { }
 
   joke:any;
   JokeNoFound=true;
@@ -69,11 +72,6 @@ export class PortfolioComponent implements OnInit {
     this.scroll.scrollToAnchor("top");
   }
 
-
-  getUrl(url:string){
-    return this.http.get(url);
-  }
-
   loadPics(way="",nb=this.page){
     switch(way){
       case 'next':this.page++;
@@ -85,16 +83,16 @@ export class PortfolioComponent implements OnInit {
       case '' :this.page = nb;
       break
     }
-    this.urlPicsum='https://picsum.photos/v2/list?page='+this.page+'&limit=6'
+    this.urlPicsum=this.api.listPicsum(this.page)
 
-    this.getUrl(this.urlPicsum).subscribe(
+    this.api.getUrl(this.urlPicsum).subscribe(
       (data)=>{
         this.gallery=data;
         console.log(data);
   })}
 
   ngOnInit(): void {
-    this.http.get('https://api.chucknorris.io/jokes/random').subscribe(
+    this.api.getUrl(this.api.urlChuck).subscribe(
       (data)=>{
         this.joke=data;
         this.JokeNoFound = false;
