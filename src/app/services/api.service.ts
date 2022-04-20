@@ -6,7 +6,7 @@ import { HttpClient} from '@angular/common/http';
 export class ApiService {
 
   constructor(public http:HttpClient) { }
-
+  chemin = "/assets/caroussel";
   propriete = "GRATIA DEI FLOREBO QUOCUMQUE FERAR";
 
   urlChuck = 'https://api.chucknorris.io/jokes/random';
@@ -32,4 +32,6 @@ export class ApiService {
   bigImgPicsum(itemId:number){
     return this.urlPicsum +itemId+'/1280/960?'
   }
+
+
 }
