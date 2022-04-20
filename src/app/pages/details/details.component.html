@@ -1,1 +1,15 @@
-<h1>{{itemInfo?.author}}</h1>
+<h1>Informations</h1>
+<h3>{{itemInfo?.author}}</h3>
+<h3>{{itemInfo?.width}}</h3>
+<h3>{{itemInfo?.height}}</h3>
+<h3>{{itemInfo?.download_url}}</h3>
+<h1>{{itemInfo?.id}}</h1>
+<img [src]="source" [alt]="'Picture from' +itemInfo?.author" class="card image top img-fluid">
+
+<a class="btn btn-primary" routerLink="/portfolio" role="button">Retour</a>
+<input class="btn btn-primary" type="button" value="griser" (click)="gris()">
+<input class="btn btn-primary" type="button" value="flouter" (click)="floutage()">
+<input class="btn btn-primary" type="button" value="girser et flouter" (click)="flouGris()">
+<input class="btn btn-primary" type="button" value="+ de flou" (click)="plus()">
+<input class="btn btn-primary" type="button" value="- de flou" (click)="moins()">
+<input class="btn btn-primary" type="button" value="annuler">
