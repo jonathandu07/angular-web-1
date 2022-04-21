@@ -11,6 +11,8 @@ import { ContactComponent } from './pages/contact/contact.component';
 import { PortfolioComponent } from './pages/portfolio/portfolio.component';
 import { DetailsComponent } from './pages/details/details.component';
 import { CarousselComponent } from './caroussel/caroussel.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -23,11 +25,14 @@ import { CarousselComponent } from './caroussel/caroussel.component';
     PortfolioComponent,
     DetailsComponent,
     CarousselComponent
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
