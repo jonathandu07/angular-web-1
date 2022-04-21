@@ -12,6 +12,7 @@ export class ApiService {
   urlChuck = 'https://api.chucknorris.io/jokes/random';
   urlPhoto = 'https://picsum.photos/v2/list?page=';
   urlPicsum = 'https://picsum.photos/id/';
+  urlPodek = 'https://dekpo.com/api/public/pictures/list?page=2&limit=3';
 
   listPicsum(num:number){
     return this.urlPhoto + num +'&limit=6'

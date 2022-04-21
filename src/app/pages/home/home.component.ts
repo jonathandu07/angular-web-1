@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/services/api.service';
+import { SettingsService } from 'src/app/services/settings.service';
 
 @Component({
   selector: 'app-home',
@@ -7,7 +8,8 @@ import { ApiService } from 'src/app/services/api.service';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
-  constructor(public api:ApiService,) { }
+  constructor(public api:ApiService,
+    public settings:SettingsService) { }
 
   title = 'home';
 
@@ -52,5 +54,7 @@ export class HomeComponent implements OnInit {
     console.log(this.sourceImg);
     this.changeImage();
     console.log(this.truc)
+    this.settings.DisplayCaroussel = true;
   }
+  
 }

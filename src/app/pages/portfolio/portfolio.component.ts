@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/services/api.service';
 // import { url } from 'inspector';
 import { ViewportScroller } from '@angular/common';
+import { SettingsService } from 'src/app/services/settings.service';
 
 @Component({
   selector: 'app-portfolio',
@@ -12,7 +13,8 @@ export class PortfolioComponent implements OnInit {
 
   constructor(
      public scroll: ViewportScroller,
-      public api:ApiService) { }
+      public api:ApiService,
+      public settings:SettingsService) { }
 
   joke:any;
   JokeNoFound=true;
@@ -68,6 +70,8 @@ export class PortfolioComponent implements OnInit {
   //   console.log(this.urlPicsum);
   // }
 
+
+
   goTop(){
     this.scroll.scrollToAnchor("top");
   }
@@ -101,7 +105,9 @@ export class PortfolioComponent implements OnInit {
     )
 
     this.loadPics();
+    this.settings.DisplayCaroussel = true;
       }
+
     
   }
 
