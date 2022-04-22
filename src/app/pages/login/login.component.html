@@ -1,0 +1,25 @@
+<section class="container-fluid">
+    <div class="row">
+        <div class="col">
+            <h2>
+                login
+            </h2>
+        </div>
+
+    </div>
+
+    <div>
+        <form [formGroup]="loginForm" #myForm="ngForm" (ngSubmit)="login()" class="row g-3">
+            <div class="col mb-6">
+              <label for="exampleInputuserName" class="form-label">Nom d'utilisateur</label>
+              <input type="username" class="form-control" id="exampleInputName userName" aria-describedby="nameHelp" name="username" [(ngModel)]= 'userName' required formControlName="user">
+              <div id="emailHelp" class="form-text">Prière d'écire</div>
+            </div>
+            <div class="col mb-6">
+              <label for="exampleInputPassword1" class="form-label">mot de passe</label>
+              <input type="password" class="form-control" id="exampleInputName password" [(ngModel)]= 'contrasena' name="password" required formControlName="password">
+            </div>
+            <button type="submit" class="btn btn-primary col-12" [disabled]="!myForm.valid">Submit</button>
+          </form>
+    </div>
+</section>

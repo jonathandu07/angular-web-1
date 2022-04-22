@@ -12,6 +12,7 @@ import { PortfolioComponent } from './pages/portfolio/portfolio.component';
 import { DetailsComponent } from './pages/details/details.component';
 import { CarousselComponent } from './caroussel/caroussel.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { LoginComponent } from './pages/login/login.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ContactComponent,
     PortfolioComponent,
     DetailsComponent,
-    CarousselComponent
+    CarousselComponent,
+    LoginComponent
 
   ],
   imports: [
