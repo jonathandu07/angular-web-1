@@ -6,7 +6,7 @@ import { HttpClient} from '@angular/common/http';
 export class ApiService {
 
   constructor(public http:HttpClient) { }
-  chemin = "/assets/caroussel";
+  chemin = "./assets/caroussel";
   propriete = "GRATIA DEI FLOREBO QUOCUMQUE FERAR";
 
   urlChuck = 'https://api.chucknorris.io/jokes/random';
